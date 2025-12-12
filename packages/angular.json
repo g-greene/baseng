@@ -28,6 +28,32 @@
           }
         }
       }
+    },
+    "@baseng/base-form": {
+      "projectType": "library",
+      "root": "projects/baseng/base-form",
+      "sourceRoot": "projects/baseng/base-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/baseng/base-form/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/baseng/base-form/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/baseng/base-form/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }

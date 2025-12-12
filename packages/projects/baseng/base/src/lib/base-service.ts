@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpEventType } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import querystring from 'querystring';
 
 @Injectable()
 export class BaseService {
@@ -200,8 +199,8 @@ export class ODataParams {
   }
 
   private _queryString(): string {
-    let qs = querystring.stringify(this._params.entries() as any);
-    return qs ? '&' + qs : '';
+    let params: URLSearchParams = new URLSearchParams(this._params.entries() as any);
+    return params.toString() != '' ? '&' + params.toString() : '';
   }
 
   private _top(): string {

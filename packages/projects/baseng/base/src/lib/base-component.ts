@@ -156,6 +156,10 @@ export abstract class BaseComponent implements OnInit, OnDestroy, AfterContentIn
         return this._eventHub;
     }
 
+    protected get canDebug(): boolean {
+        return this._canDebug();
+    }
+
     protected _canDebug(mode: string = 'debug'): boolean {
         return this._debugMode && (this._logLevel === 'verbose' || this._logLevel === mode);
     }
